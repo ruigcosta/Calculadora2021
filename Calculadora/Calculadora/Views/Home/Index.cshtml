@@ -2,7 +2,98 @@
     ViewData["Title"] = "Home Page";
 }
 
+<style>
+    h1 {
+        margin-bottom: 30px;
+    }
+
+    .tableCalc {
+        background-color: lightgray;
+    }
+
+        .tableCalc td {
+            width: 60px;
+            height: 60px;
+            padding: 4px;
+        }
+
+            .tableCalc td.display {
+                padding-bottom: 8px;
+            }
+
+        .tableCalc input[type=submit] {
+            border: solid 1px gray;
+            background-color: silver;
+            border-radius: 2px;
+            width: 100%;
+            height: 100%;
+        }
+
+            .tableCalc input[type=submit]:hover {
+                background-color: aliceblue;
+                border: dotted 1px blue;
+                border-radius: 6px;
+            }
+
+    input[type=text].display {
+        text-align: right;
+        width: 100%;
+        height:60px;
+        font-size:x-large;
+    }
+</style>
+
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Calculadora</h1>
+
+    <form id="frmCalculadora" name="frmCalculadora" method="post">
+
+        <input type="hidden" value="@ViewBag.primeiroOperando" name="primeiroOperando"  />
+        <input type="hidden" value="@ViewBag.operador" name="operador" />
+        <input type="hidden" value="@ViewBag.limpaVisor" name="limpaVisor" />
+
+        <table class="tableCalc">
+            <tr>
+                <td colspan="4" class="display">
+                    <input type="text" name="visor" id="visor" readonly="readonly" value="@ViewBag.Visor" class="display" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="submit" id="btnC" value="C" name="btn" class="btn" />
+                </td>
+                <td><input type="submit" id="btnMM" value="+/-" name="btn" class="btn" /> </td>
+                <td><input type="submit" id="btnDiv" value=":" name="btn" class="btn" /> </td>
+            </tr>
+            <tr>
+                <td><input type="submit" id="btn7" value="7" name="btn" class="btn" /> </td>
+                <td><input type="submit" id="btn8" value="8" name="btn" class="btn" /> </td>
+                <td><input type="submit" id="btn9" value="9" name="btn" class="btn" /> </td>
+                <td><input type="submit" id="btnMult" value="x" name="btn" class="btn" /> </td>
+            </tr>
+            <tr>
+                <td><input type="submit" id="btn4" value="4" name="btn" class="btn" /> </td>
+                <td><input type="submit" id="btn5" value="5" name="btn" class="btn" /> </td>
+                <td><input type="submit" id="btn6" value="6" name="btn" class="btn" /> </td>
+                <td><input type="submit" id="btnMenos" value="-" name="btn" class="btn" /> </td>
+            </tr>
+            <tr>
+                <td><input type="submit" id="btn1" value="1" name="btn" class="btn" /> </td>
+                <td><input type="submit" id="btn2" value="2" name="btn" class="btn" /> </td>
+                <td><input type="submit" id="btn3" value="3" name="btn" class="btn" /> </td>
+                <td><input type="submit" id="btnMais" value="+" name="btn" class="btn" /> </td>
+            </tr>
+            <tr>
+                <td><input type="submit" id="btn0" value="0" name="btn" class="btn" /> </td>
+                <td><input type="submit" id="btnVirg" value="," name="btn" class="btn" /> </td>
+                <td colspan="2">
+                    <input type="submit" id="btnIgual" value="=" name="btn" class="btn" />
+                </td>
+            </tr>
+        </table>
+    </form>
+
+    
 </div>
+
+@*Código de interface da calculadora*@
